@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects">
+            <h1>My Projects</h1>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x300" alt="E-commerce Website">
+                    <div class="project-info">
+                        <h3>E-commerce Website</h3>
+                        <p style="color: black; !important">A full-featured online store built with React and Node.js</p>
+                        <div class="tech-stack">
+                            <span class="tech">React</span>
+                            <span class="tech">Node.js</span>
+                            <span class="tech">MongoDB</span>
+                        </div>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x300" alt="Task Management App">
+                    <div class="project-info">
+                        <h3>Task Management App</h3>
+                        <p style="color: black; !important">A collaborative task management tool with real-time updates</p>
+                        <div class="tech-stack">
+                            <span class="tech">Vue.js</span>
+                            <span class="tech">Firebase</span>
+                            <span class="tech">Express</span>
+                        </div>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x300" alt="Weather Dashboard">
+                    <div class="project-info">
+                        <h3>Weather Dashboard</h3>
+                        <p style="color: black; !important">A weather forecasting application with interactive maps</p>
+                        <div class="tech-stack">
+                            <span class="tech">JavaScript</span>
+                            <span class="tech">Weather API</span>
+                            <span class="tech">Leaflet.js</span>
+                        </div>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+    </footer>
+    <script src="theme.js"></script>
+</body>
+</html>

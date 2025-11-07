@@ -1,0 +1,490 @@
+/*
+ * Portfolio Website Stylesheet
+ * Author: Portfolio Developer
+ * Version: 1.0
+ * Description: This stylesheet contains all the styling for the portfolio website,
+ * including both light and dark theme implementations using CSS variables.
+ */
+
+/* 
+ * Theme Variables
+ * These variables define the color scheme for both light and dark modes.
+ * Using CSS variables allows for easy theme switching without changing classes.
+ */
+:root {
+    --bg-primary: #fff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --accent-color: #3498db;
+    --accent-dark: #2980b9;
+    --nav-bg: #fff;
+    --card-bg: #fff;
+    --card-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    --border-color: #ddd;
+    --hero-gradient: linear-gradient(135deg, #3498db, #2c3e50);
+    --footer-bg: #2c3e50;
+    --footer-text: #fff;
+}
+
+[data-theme="dark"] {
+    /* Dark theme background colors - optimized for eye comfort */
+    --bg-primary: #1a1a1a;   /* Dark main background with slight softness */
+    --bg-secondary: #2d2d2d; /* Slightly lighter background for contrast */
+    
+    /* Text colors - enhanced for dark mode readability */
+    --text-primary: #f0f0f0; /* Light text color with reduced intensity */
+    --text-secondary: #ccc;  /* Subdued text for secondary information */
+    
+    /* Accent colors - adjusted for dark theme visibility */
+    --accent-color: #4aa3df; /* Brightened accent for dark background */
+    --accent-dark: #3498db;  /* Adjusted hover state for dark mode */
+    
+    /* Component colors - dark theme variants */
+    --nav-bg: #242424;      /* Darker navigation for better contrast */
+    --card-bg: #2d2d2d;     /* Card background with subtle lift */
+    --card-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+    --border-color: #404040; /* Visible but subtle borders */
+    
+    /* Special elements - dark theme adjustments */
+    --hero-gradient: linear-gradient(135deg, #2c3e50, #1a1a1a); /* Subdued hero gradient */
+    --footer-bg: #242424;    /* Dark footer background */
+    --footer-text: #f0f0f0;  /* Light footer text for readability */
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base body styles
+ * Sets up the fundamental typography and colors
+ * Includes smooth transitions for theme switching
+ */
+body {
+    /* Typography settings for optimal readability */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6; /* Improved line spacing for readability */
+    
+    /* Theme-aware colors */
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    
+    /* Smooth theme transition effects */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header and Navigation */
+/* Header Component
+ * Fixed position header with responsive navigation
+ * Includes shadow for depth and proper z-indexing
+ */
+header {
+    background-color: var(--nav-bg);
+    box-shadow: var(--card-shadow);
+    position: fixed;   /* Sticky header for easy navigation */
+    width: 100%;      /* Full width header */
+    top: 0;
+    z-index: 1000;    /* Ensures header stays above other content */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-color);
+}
+
+/* Main Content */
+main {
+    margin-top: 80px;
+    min-height: calc(100vh - 160px);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: white;
+    padding: 6rem 5%;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    color: #3498db;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+}
+
+/* Featured Skills Section */
+.featured {
+    padding: 4rem 5%;
+    background-color: #f8f9fa;
+}
+
+.featured h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.skill-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+/* About Page */
+.about {
+    padding: 4rem 5%;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    font-size: 1.1rem;
+}
+
+.about-text p + p {
+    margin-top: 1rem;
+}
+
+.profile-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Experience Section */
+.experience {
+    padding: 4rem 5%;
+    background-color: #f8f9fa;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.timeline-item {
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.timeline-item h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.company {
+    color: #3498db;
+    font-weight: 500;
+}
+
+.period {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+/* Projects Page */
+.projects {
+    padding: 4rem 5%;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.project-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.tech-stack {
+    margin: 1rem 0;
+}
+
+.tech {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background-color: #e1f0fa;
+    color: #3498db;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin: 0.2rem;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: #2980b9;
+}
+
+/* Contact Page */
+.contact {
+    padding: 4rem 5%;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.contact-info {
+    background-color: #2c3e50;
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.info-item i {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #3498db;
+}
+
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.submit-button {
+    background-color: #3498db;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #2980b9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-grid,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-image {
+        text-align: center;
+    }
+
+    .profile-image img {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}

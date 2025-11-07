@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Message Sent — Contact Maintenance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="robots" content="noindex">
+    <style>
+        /* Small page-specific styles (keeps visual consistent) */
+        .maintenance {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .maintenance .card {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            padding: 2rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            max-width: 720px;
+        }
+        .maintenance h1 { margin-bottom: .5rem; }
+        .maintenance p { margin: .75rem 0; }
+        .actions { margin-top: 1.25rem; }
+        .actions a { margin: 0 .5rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="maintenance">
+            <div class="card">
+                <h1>Contact Feature Under Maintenance</h1>
+                <p>Thanks — your message was received, but our contact service is currently under maintenance.</p>
+                <p>We'll process messages as soon as the service is restored.</p>
+                <div class="actions">
+                    <a href="index.html" class="project-link">Return to Home Now</a>
+                </div>
+                <p style="font-size:.9rem;color:var(--text-secondary);margin-top:1rem;">You will be redirected back to the home page in <span id="count">5</span> seconds.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="theme.js"></script>
+    <script>
+        // Simple redirect countdown — keeps the UX clear
+        (function(){
+            var countdown = 5;
+            var el = document.getElementById('count');
+            var t = setInterval(function(){
+                countdown -= 1;
+                if(el) el.textContent = countdown;
+                if(countdown <= 0){
+                    clearInterval(t);
+                    window.location.href = 'index.html';
+                }
+            }, 1000);
+        })();
+    </script>
+</body>
+</html>
